@@ -16,12 +16,3 @@ class HomeView(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'status.html', {})
 
-
-class AboutView(View):
-    def get(self, request, *args, **kwargs):
-        return render(request, 'about.html', {})
-
-
-class ReferenceView(View):
-    def get(self, request, *args, **kwargs):
-        return render(request, 'reference.html', {})

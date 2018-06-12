@@ -9,7 +9,7 @@ session_csrf.monkeypatch()
 from django.contrib import admin
 admin.autodiscover()
 
-from gui.views import HomeView, LoginView, AboutView, ReferenceView
+from gui.views import HomeView, LoginView
 
 urlpatterns = (
     # Examples:
@@ -26,11 +26,8 @@ urlpatterns = (
 
     url(r'^$', LoginView.as_view(), name='login'),
 
-    url(r'^status$', HomeView.as_view(), name='status'),
+    url(r'^status$', HomeView.as_view(), name='status')
 
-    url(r'^about$', AboutView.as_view()),
-
-    url(r'^reference$', ReferenceView.as_view())
 )
 
 if settings.DEBUG:

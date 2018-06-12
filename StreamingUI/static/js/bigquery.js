@@ -33,16 +33,19 @@ function authenticate() {
             ir.push(rows[i].f[3].v);
             if(rows[i].f[1].v < 0 || rows[i].f[1].v >700 || rows[i].f[2].v < 0 || rows[i].f[2].v > 40 || rows[i].f[3].v < 0 || rows[i].f[3].v >1)
                 predictions.push(0);
-            else
-                predictions.push(1);
+            else{
+                if(rows[i].f[3].v == 1)
+                    predictions.push(1);
+                else
+                    predictions.push(0.8);
+            }
         }
         update_chart(ids.reverse(), ir.reverse(), temp.reverse(), smoke.reverse(), predictions.reverse());
       },
       function(err) { console.error("Execute error", err); });
   }
 
-
-
   gapi.load("client:auth2", function() {
     gapi.auth2.init({client_id: "282251953548-iqjenaov29v66n670g9efai52glkcnki.apps.googleusercontent.com"});
   });
+
